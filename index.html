@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, paper, scissors, lizard, spock</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="slide flexbox" id="Home">
+            <div class="logo flexItem">
+                <img src="img/spock.svg" alt="logo">
+                <!--
+                <img src="img/lizard.svg" alt="logo">
+                <img src="img/scissors.svg" alt="logo">
+                <img src="img/paper.svg" alt="logo">
+                <img src="img/rock.svg" alt="logo">
+                -->
+            </div>
+            <div class="title flexItem"><h1 id="logoTitle">Spock</h1></div>
+            <div class="main-menu flexItem">
+                <h3><a href="" id="instructions">See the instructions</a></h3>
+                <button class="btn" id="player">Player vs Bot</button>
+                <button class="btn" id="bot">Bot vs Bot</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+function getRealVH(height) {
+    var slides = document.getElementsByClassName('slide');
+    for(i=0; i<slides.length; i++) {
+      slides[i].style.height = viewportHeight + 'px';
+    }
+}
+// al rotar ejecutar otra vez 
+getRealVH(viewportHeight)
+window.addEventListener("orientationchange", function() {
+    var title = document.getElementById('logoTitle')
+    title.innerHTML = "the orientation of the device is now " + screen.orientation.angle;
+    console.log('im here')
+
+});
+</script>
+</html>

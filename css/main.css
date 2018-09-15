@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.wrapper {
+    background-image: radial-gradient(48% 102%, #FDFEFF 33%, #D7E7F9 100%);    width: 100%;
+    display: block;
+}
+.slide {
+    width: 100vw;
+    height: 100vh
+}
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items:center;
+    justify-content: center;
+    
+}
+.flexItem {
+    flex: 0 1 auto;
+}
+
+
+/* Logo */
+
+.logo {
+    padding-top: 15vh;
+}
+
+/* Title */
+
+h1 {
+    color: #6F88BE;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px
+}
+
+/* Buttons */
+
+.main-menu {
+    margin-top: auto;
+    padding-bottom: 10vh;
+    width: 100%;
+    text-align: center;
+}
+
+.main-menu > h3 a{
+    color: #607A8F;
+    font-size:18px;
+    letter-spacing: 1px;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.btn {
+    display: block;
+    background: #8DB5EC;
+    border-radius: 31px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 24px;
+    color: #FDFEFF;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 0;
+    margin-top: 10px;
+    cursor: pointer;
+}
