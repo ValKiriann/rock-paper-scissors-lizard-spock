@@ -63,7 +63,7 @@ h1 {
 
 .main-menu {
     margin-top: auto;
-    padding-bottom: 10vh;
+    padding-bottom: 6vh;
     width: 100%;
     text-align: center;
 }
@@ -182,4 +182,73 @@ h1 {
     width: 100px;
     padding: 5px 3px;
     cursor: pointer;
+}
+
+/* --- Results --- */
+
+.title-result h2 {
+    font-size: 36px;
+    font-weight: 700;
+    padding-top: 5vh;
+}
+.win-title {
+    color: #99D2DA;
+}
+
+.lose-title {
+    color: #DA9C99;
+}
+
+.lose-icon {
+    opacity: .4;
+}
+
+.results-icons {
+    padding-top: 2vh;
+}
+
+#player1Icon {
+    transform: rotate(90deg);
+}
+
+#player2Icon {
+    transform: rotate(270deg);
+}
+
+.vs {
+    font-weight: 700;
+    font-size: 24px;
+    color: #597B91;
+}
+
+.result-msg {
+    color: #607A8F;
+    font-size:20px;
+    padding: 20px;
+}
+
+.scoreboard {
+    padding-top: 3vh;
+}
+
+.scoreboard div{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.score-label {
+    background-color: #6F88BE;
+    font-size: 18px;
+    color: white;
+    padding: 5px 20px;
+}
+.score {
+    border: solid 3px #6F88BE;
+    font-size: 48px;
+    color: #6F88BE;
+    padding: 5px 20px;
+}
+
+.btn-dark {
+    background-color: #6F88BE;
 }

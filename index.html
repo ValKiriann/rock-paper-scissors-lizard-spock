@@ -79,7 +79,7 @@
                 <button class="btn btn-icon btn-trans" id="gt-home"><img src="img/back.svg" alt="back icon"> Back to home</button>
             </section>
         </div>
-        <div class="slide flex-col" id="choose" style="display:flex">
+        <div class="slide flex-col" id="choose">
             <section class="title-round flex-item">
                 <h3>Round <span>1</span></h3>
                 <h4 id="">Choose your move</h4>
@@ -95,13 +95,27 @@
                 <img src="img/spock.svg" alt="spock movement icon" class="flex-item">
             </section>
         </div>
-        <div class="slide flex-col" id="resultView">
+        <div class="slide flex-col" id="resultView" style="display:flex">
             <section class="title-result flex-item">
-                <h2 class="win lose">You win!</h2>
+                <h2 class="win-title">You win!</h2>
             </section>
             <section class="results-icons flex-row flex-item">
-                <img src="" alt="">
+                <img  id="player1Icon" src="img/spock.svg" alt="left player movement election">
+                <p class="vs">- VS -</p>
+                <img class="lose-icon" id="player2Icon"src="img/rock.svg" alt="player 2 movement election">
             </section>
+            <section class="result-msg flex-item">
+                <p>Spock vaporizes rocks!</p>
+            </section>
+            <section class="scoreboard flex-item">
+                <div class="score-label" id="player1Label"><span>Player</span></div>
+                <div class="score"><span id="player1Score">1</span><span> - </span><span id="player2Score">0</span></div>
+                <div class="score-label" id="player2Label"><span>Player</span></div>
+            </section>
+            <div class="main-menu flex-item">
+                <button class="btn" id="gt-player">Next round!</button>
+                <button class="btn btn-dark" id="gt-bot">End game</button>
+            </div>
         </div>
     </div>
 </body>
@@ -112,8 +126,8 @@ function getRealVH(height) {
         slide.style.height = viewportHeight + 'px';
 }
 getRealVH(viewportHeight)
-// solucionar al girar que se arregle la altura
-// hacer que solo se aplique esta funcion de fix cuando es full de verdad
+// fix landscape event on rotation
+// only aplied this if not on desktop hd
 /*
 window.addEventListener("orientationchange", function() {
     var title = document.getElementById('logoTitle')
