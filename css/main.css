@@ -1,27 +1,46 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
 }
+
 .wrapper {
     background-image: radial-gradient(48% 102%, #FDFEFF 33%, #D7E7F9 100%);    width: 100%;
     display: block;
 }
-.slide {
-    width: 100vw;
-    height: 100vh
-}
-.flexbox {
+
+.flex-col {
     display: flex;
     flex-direction: column;
     align-content: center;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     
 }
-.flexItem {
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap:wrap;
+}
+
+.slide {
+    max-width: 100vw;
+    height: 100vh;
+    display: none;
+}
+.flex-item {
     flex: 0 1 auto;
 }
 
+
+
+/* --- Home --- */
 
 /* Logo */
 
@@ -40,7 +59,7 @@ h1 {
     letter-spacing: 1px
 }
 
-/* Buttons */
+/* Buttons menu */
 
 .main-menu {
     margin-top: auto;
@@ -54,6 +73,7 @@ h1 {
     font-size:18px;
     letter-spacing: 1px;
     font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
 
 }
 
@@ -69,5 +89,97 @@ h1 {
     margin: 0 auto;
     padding: 10px 0;
     margin-top: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+/* --- Instructions --- */
+
+.close {
+    position: fixed;
+    top: 3%;
+    right: 5%;
+}
+
+#instructions {
+    background-color: white;
+    padding: 7% 5% 5% 5%;
+}
+
+.text-box{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #607A8F;
+    margin-bottom: 15px;
+}
+
+.text-box h3 {
+    font-size: 20px;
+    font-weight: 800;
+}
+.text-box p {
+    font-size:18px;
+}
+.title-icon img, .title-icon h3{
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom:5px;
+}
+
+.title-icon > img {
+    width: 50px;
+}
+
+.text-box:last-child {
+    margin-top:50px
+}
+.text-box button {
+    margin: 50px auto;
+}
+
+.btn-trans {
+    background-color:transparent;
+    border: solid 1px #8DB5EC;
+    color: #8DB5EC;
+}
+
+/* --- Choose move --- */
+
+.title-round {
+    text-align: center;
+}
+
+.flex-col > .title-round {
+    padding-top: 10vh;
+}
+
+.title-round h3, .title-round span {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #8DB5EC;
+}
+
+.title-round h4 {
+    color: #607A8F;
+    font-size: 18px;
+}
+
+.hand {
+    align-self: flex-start;
+    padding-top:8vh;
+}
+
+.hand img  {
+    width: 70vw;
+}
+
+.move-menu {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.move-menu img {
+    width: 100px;
+    padding: 5px 3px;
     cursor: pointer;
 }
