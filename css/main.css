@@ -96,6 +96,7 @@ h1 {
     position: fixed;
     top: 3%;
     right: 5%;
+    cursor: pointer;
 }
 
 .rulesView {
@@ -196,7 +197,7 @@ h1 {
     color: #DA9C99;
 }
 
-.lose-icon {
+.lose-icon, .win-player1 {
     opacity: .4;
 }
 
