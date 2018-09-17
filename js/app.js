@@ -48,7 +48,7 @@
 
     let wrapper = document.getElementById('wrapper')
 
-    wrapper.addEventListener('click', function(){
+    wrapper.addEventListener('click', function(event){
         if(event.target.dataset.gt){
             var view = event.target.dataset.gt
             switch(view){

@@ -9,9 +9,12 @@ let p1Score = 0
 let p2Score = 0
 
 let titleString = {
-    win: 'You win!',
-    lose: 'You lose!',
-    tie: 'Its a tie'
+    win0: 'You win!',
+    lose0: 'You lose!',
+    tie0: 'Its a tie',
+    win2: 'Bot 1 wins!',
+    lose2: 'Bot 2 wins!',
+    tie2: 'Its a perfect match!'
 }
 
 let players = ['Player', 'Bot', 'Bot 1', 'Bot2']
@@ -86,7 +89,7 @@ let view_helpers = {
             `
         }
         return content
-    }
+    },
 }
 
 let views = {
@@ -153,7 +156,7 @@ let views = {
         return `
         <div class="flex-col">
             <section class="title-result flex-item">
-                <h2 class="${result}-title">${titleString[result]}</h2>
+                <h2 class="${result}-title">${titleString[result+gameMode]}</h2>
             </section>
             <section class="results-icons flex-row flex-item">
                 <img class="${result}-icon" id="player1Icon" src="img/${movements[p1Move]}.svg" alt="left player movement election">
@@ -176,3 +179,6 @@ let views = {
         `
     }
 }
+
+
+// automatization process
