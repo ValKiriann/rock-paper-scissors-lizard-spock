@@ -16,27 +16,6 @@
         wrapper.style.height = viewportHeight + 'px';
     }
 
-    function botMove(){
-        return Math.floor(Math.random() * movements.length);
-    }
-    
-    function resolve(move1,move2) {
-        console.log('I am starting to resolve')
-        p1Move = move1
-        p2Move = move2;
-        resultCode = "R" + p1Move.toString() + p2Move.toString();
-
-        if(winnings["M" + move1].includes(move2)){
-            result = 'win'
-            p1Score ++;
-        }else if(move1 == move2) {
-            result = 'tie';
-        }else {
-            result = 'lose';
-            p2Score ++;
-        }
-    }
-
     // --- Start the app --- //
 
     if(viewportWidth < 1000 ){
@@ -65,7 +44,7 @@
                     break;
                 case 'botFight':
                     gameMode = 2
-                    resolve(botMove(),botMove())
+                    result = resolve(botMove(),botMove())
                     render(views.results())
                     break;
                 case 'next':
@@ -74,14 +53,14 @@
                         render(views.choice())
                     }else {
                         round++
-                        resolve(botMove(),botMove())
+                        result = resolve(botMove(),botMove())
                         render(views.results())
                     }
                     break;
                 default: render(views[view]())
             }
         }else if(event.target.dataset.choice){
-            resolve(event.target.dataset.choice,botMove())
+            result = resolve(event.target.dataset.choice,botMove())
             render(views.results())
 
         }

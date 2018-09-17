@@ -180,5 +180,24 @@ let views = {
     }
 }
 
+function botMove(){
+    return Math.floor(Math.random() * movements.length);
+}
+
+function resolve(move1,move2) {
+    p1Move = move1
+    p2Move = move2;
+    resultCode = "R" + p1Move.toString() + p2Move.toString();
+
+    if(winnings["M" + move1].includes(move2)){
+        p1Score ++;
+        return 'win'
+    }else if(move1 == move2) {
+        return 'tie';
+    }else {
+        p2Score ++;
+        return 'lose';
+    }
+}
 
 // automatization process
