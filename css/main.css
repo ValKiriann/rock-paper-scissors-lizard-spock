@@ -29,32 +29,55 @@ body {
 }
 
 .wrapper {
+    background-image: -webkit-radial-gradient(48% 102%, #FDFEFF 33%, #D7E7F9 100%);
+    background-image: -o-radial-gradient(48% 102%, #FDFEFF 33%, #D7E7F9 100%);
     background-image: radial-gradient(48% 102%, #FDFEFF 33%, #D7E7F9 100%);    width: 100%;
     display: block;
 }
 
 .flex-col {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     height: 100%;
     
 }
 
 .flex-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-content: space-around;
-    align-items: center;
-    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     width: 100%;
-    flex-wrap:wrap;
+    -ms-flex-wrap:wrap;
+        flex-wrap:wrap;
 }
 
 .flex-item {
-    flex: 0 1 auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
 }
 
 /* --- Home --- */
@@ -199,7 +222,8 @@ h1 {
 } 
 
 .hand {
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
     padding-top:8vh;
 }
 
@@ -247,11 +271,15 @@ h1 {
 }
 
 #player1Icon {
-    transform: rotate(90deg) scaleX(-1);
+    -webkit-transform: rotate(90deg) scaleX(-1);
+        -ms-transform: rotate(90deg) scaleX(-1);
+            transform: rotate(90deg) scaleX(-1);
 }
 
 #player2Icon {
-    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+            transform: rotate(270deg);
 }
 
 .vs {
@@ -304,11 +332,12 @@ h1 {
 }
 
 /* --- Desktop --- */
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .wrapper {
         width: 700px;
         border: 1px solid #979797;
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
         margin: 0 auto;
         height: 600px;
         margin-top: 50px;
@@ -320,7 +349,6 @@ h1 {
     }
     
     .logo {
-        position: absolute;
         width: 120px;
         top: 7vh;        
     }
@@ -370,7 +398,8 @@ h1 {
         height: 100%;
         overflow: scroll;
         position: relative;
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         padding: 7% 10%;
     }
 
@@ -408,10 +437,6 @@ h1 {
 @media screen and (min-width: 1200px) {
     .wrapper {
         width: 1000px;
-        border: 1px solid #979797;
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-        margin: 0 auto;
-        margin-top: 50px;
     }
     #logo-container {
         height: 150px;
@@ -419,7 +444,6 @@ h1 {
     }
     
     .logo {
-        position: absolute;
         width: 150px;
         top: 15vh;        
     }
@@ -435,66 +459,12 @@ h1 {
         padding-bottom: 6vh;
         margin-top:0;
     }
-    .main-menu > h3 {
-        font-size:18px;
-    }
-    
-    .title-round h3 {
-        font-size: 36px;
-    }
-    
-    .title-round h4 {
-        color: #607A8F;
-        font-size: 24px;
-    } 
-    
-    .hand {
-        width: 100%
-    }
-    
-    .hand img  {
-        width: 45%;
-    }
-
-    .hand {
-        padding-top: 0;
-    }
-
-    .move-menu {
-        margin-top: 0;
-    }
-
-    .rulesView {
-        height: 100%;
-        overflow: scroll;
-        position: relative;
-        box-sizing: border-box;
-        padding: 7% 10%;
-    }
-
-    .close {
-        position: absolute;
-        top: 7%;
-    }
-
-    .results-icons {
-        width: 50%;
-    }
 
     .results-icons img {
         width: 125px;
     }
 
-    .vs {
-        font-size:30px;
-    }
-
     .title-result h2 {
         font-size: 48px;
-    }
-
-    .result-msg  p{
-        font-family: 'montserratlight', sans-serif;
-        font-size:24px;
     }
 }
