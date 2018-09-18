@@ -1,38 +1,16 @@
-// Made everything anonymous for safety reasons 
+/**
+ * The app is encapsulated for safety reasons
+ * It is difficult to manage all the events depending of the view that we have to render
+ * so I decided to create only one event on the wrapper of the view and only activate it
+ * when it clicks on an element that needs interactivity.
+ * We can manage all the architecture of the app in one place and everything is ordered.
+ * I have placed a special dataset property to the elements that need interactivity
+ */
 (function() {
-
-    
-
-    // Fix to properly set the full height on mobile devices
-    function getRealVH() {
-        let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var wrapper = document.getElementById('wrapper');
-        if(viewportWidth < 992 ){
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0
-            wrapper.style.height = viewportHeight + 'px';
-        }else if(viewportWidth >= 992 && viewportWidth < 1200){
-            wrapper.style.height='600px';
-        }else if(viewportWidth >= 1200){
-            wrapper.style.height='700px';
-        }
-    }
-
-    // --- Start the app --- //
-    
     getRealVH()
-
-    // render the homepage
     render(views.home(),animations.home);
 
-
-
-    
-    
-
     let wrapper = document.getElementById('wrapper')
-
     wrapper.addEventListener('click', function(event){
         if(event.target.dataset.gt){
             var view = event.target.dataset.gt

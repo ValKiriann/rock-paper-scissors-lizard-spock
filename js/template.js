@@ -1,4 +1,13 @@
-//initializing variables
+/** Initial variables
+ * @param {number} gameMode - The mode you are playing, Player vs Bot or Bot vs Bot.
+ * @param {number} round - The number of the round you are in the current game
+ * @param {number} p1Move - The move that the first player has choosen
+ * @param {number} p2Move - The move that the second player has choosen
+ * @param {string} result - The result of the round from the perspective of the first player. win, tie or lose
+ * @param {string} resultCode - The code that tells which string should the view render to show the result
+ * @param {number} p1Score - The score of the first player in the current game
+ * @param {number} p2Score - The score of the second player in the current game
+ */
 let gameMode = 0
 let round = 1
 let p1Move = 0
@@ -7,8 +16,8 @@ let result = ''
 let resultCode = ''
 let p1Score = 0
 let p2Score = 0
-
-let titleString = {
+/** @param {object} titleString - The strings of the title in the results view */
+const titleString = {
     win0: 'You win!',
     lose0: 'You lose!',
     tie0: 'Its a tie',
@@ -16,20 +25,20 @@ let titleString = {
     lose2: 'Bot 2 wins!',
     tie2: 'Its a perfect match!'
 }
-
-let players = ['Player', 'Bot', 'Bot 1', 'Bot2']
-
-let movements = ['rock','paper','scissors','lizard','spock']
-
-let winnings = {
+/** @param {array} players - The name of the players for the scoreboard labels */
+const players = ['Player', 'Bot', 'Bot 1', 'Bot 2']
+/** @param {array} movements - The movements for the game */
+const movements = ['rock','paper','scissors','lizard','spock']
+/** @param {object} winnings - Stores the winnings of every movement */
+const winnings = {
     M0: [2,3],
     M1: [0,4],
     M2: [1,3],
     M3: [1,4],
     M4: [0,2]
 }
-
-let resultStrings = {
+/** @param {object} resultStrings - Stores the sentences to show when a round has finished by pair of movements */
+const resultStrings = {
     R00: 'Poker face',
     R01: 'Paper covers rock!',
     R02: 'Rock smashes scissors!',
@@ -56,15 +65,21 @@ let resultStrings = {
     R42: 'Spock smashes scissors',
     R43: 'Lizard poisons Spock'
 }
-
-let descriptionStrings = {
+/** @param {object} descriptionStrings - Stores the description of every movement to display them on the rules view */
+const descriptionStrings = {
     M0: 'In the basic version, rock smashes scissors. In this variation rock smashes scissors and lizard.',
     M1: 'In the basic version, paper covers scissors. In this variation it also disproves Spock.',
     M2: 'In the basic version, scissors cuts paper. Now it also decapitates lizard.',
     M3: 'Lizard is a new gesture that belongs to the variation. Lizard eats paper and poisons Spock.',
     M4: 'Spock is the second gesture of the variation. Spock vaporizes rock and smashes scissors.'
 }
-
+/** 
+ * @param {object} view_helpers - Object with the helper functions for the views object to help to render the views
+ * @function view_helpers.rulesGenerator
+ * @returns the data of every movement in the game for the rules view
+ * @function view_helpers.choiceGenerator
+ * @returns every movement that the user can use to play in the choice view
+ */
 let view_helpers = {
     rulesGenerator: function() {
         let content = ''
@@ -91,7 +106,14 @@ let view_helpers = {
         return content
     },
 }
-
+/** 
+ * @param {object} views - Object with the functions to render every view of the game
+ * @function views.home
+ * @function views.rules
+ * @function views.choice
+ * @function views.results
+ * @returns the template of the view
+ */
 let views = {
     home: function() {
         return `
@@ -177,7 +199,11 @@ let views = {
         `
     }
 }
-
+/** 
+ * @param {object} animations - Object with the animations to render in every view
+ * @function animations.home
+ * Makes the logo and the title change for every movement of the game in the home view
+ */
 let animations = {
     home: function(){
         var logoTitle = document.getElementById('logoTitle');
@@ -205,11 +231,23 @@ let animations = {
     },
 
 }
-
+/**
+ * @function botMove
+ * Generates a random number between the available movements in the game to choose a movement for the cpu
+ * @returns a number
+ */
 function botMove(){
     return Math.floor(Math.random() * movements.length);
 }
-
+/**
+ * @function resolve
+ * It resolves who win when given two movements of a round
+ * @param {number} move1 - The move of the player 1
+ * @param {number} move2 - The move of the player 2
+ * The function search if the move2 is included in the array of the move1 in the object winnings
+ * If there is no coincidence it looks if the moves are the same
+ * If the other things are false then the player 2 is the winner
+ */
 function resolve(move1,move2) {
     p1Move = move1
     p2Move = move2;
@@ -225,15 +263,23 @@ function resolve(move1,move2) {
         return 'lose';
     }
 }
-
-function render(view, animations){
+/**
+ * @function render
+ * @param {function} view - The function that returns the template of the view
+ * @param {function} animation - The function that launch the animations of the view
+ * It changes the view to the one that the user has selected with its event interaction
+ */
+function render(view, animation){
     let wrapper = document.getElementById('wrapper');
     wrapper.innerHTML = view
-    if(animations){
-        animations();
+    if(animation){
+        animation();
     }
 }
-
+/**
+ * @function restartGame
+ * Reset the variables to play a new game
+ */
 function restartGame(){
     gameMode = 0
     round = 1
@@ -245,6 +291,21 @@ function restartGame(){
     p2Score = 0
     return true;
 }
-
-
-// automatization process
+/**
+ * @function getRealVH
+ * This function is a fix for the problem of having a full height layout that is not always rendering well on mobile phones because of browser conditions
+ */
+function getRealVH() {
+    let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var wrapper = document.getElementById('wrapper');
+    if(viewportWidth < 992 ){
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0
+        wrapper.style.height = viewportHeight + 'px';
+    }else if(viewportWidth >= 992 && viewportWidth < 1200){
+        wrapper.style.height='600px';
+    }else if(viewportWidth >= 1200){
+        wrapper.style.height='700px';
+    }
+}

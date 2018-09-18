@@ -1,14 +1,18 @@
 <a href="https://valkiriann.github.io/rock-paper-scissors-lizard-spock/">
-    <img src="presentation/logo.gif" alt="Game logo" title="Rock paper scissors lizard spock" align="right" height="200" />
+    <img src="presentation/logo.gif" alt="Game logo" title="Rock paper scissors lizard spock" align="left" height="150" />
 </a>
 
 # Rock, paper, scissors, lizard, spock
 
-The classic rock, paper, scissors games including the variation of lizard and Spock. You can vs a bot or let the bots play alone!
+The classic rock, paper, scissors games including the variation of lizard and Spock.  
+You can vs a bot or let the bots play alone!  
+
 
 ## Getting Started
 
 The project was made in HTML, CSS and JS. You can see a live previeww [here](https://valkiriann.github.io/rock-paper-scissors-lizard-spock/)
+
+<img src="presentation/gameplay.gif" alt="Gameplay mobile" title="Rock paper scissors lizard spock" align="center" height="400" />
 
 ### Prerequisites
 
