@@ -96,16 +96,14 @@ let views = {
     home: function() {
         return `
         <div class="flex-col">
-            <div class="logo flex-item">
-                <img src="img/spock.svg" alt="logo">
-                <!--
-                <img src="img/lizard.svg" alt="logo">
-                <img src="img/scissors.svg" alt="logo">
-                <img src="img/paper.svg" alt="logo">
-                <img src="img/rock.svg" alt="logo">
-                -->
+            <div id="logo-container" flex-item">
+                <img class="logo active" src="img/rock.svg" alt="logo">
+                <img class="logo" src="img/paper.svg" alt="logo">
+                <img class="logo" src="img/scissors.svg" alt="logo">
+                <img class="logo" src="img/lizard.svg" alt="logo">
+                <img class="logo" src="img/spock.svg" alt="logo">
             </div>
-            <div class="title flex-item"><h1 id="logoTitle">Spock</h1></div>
+            <div class="title flex-item"><h1 id="logoTitle">Rock</h1></div>
             <div class="main-menu flex-item">
                 <h3 data-gt="rules">See the instructions</h3>
                 <button class="btn" data-gt="choice">Player vs Bot</button>
@@ -159,25 +157,53 @@ let views = {
                 <h2 class="${result}-title">${titleString[result+gameMode]}</h2>
             </section>
             <section class="results-icons flex-row flex-item">
-                <img class="${result}-icon" id="player1Icon" src="img/${movements[p1Move]}.svg" alt="left player movement election">
+                <img class="${result}-icon" src="img/${movements[p1Move]}.svg" alt="left player movement election">
                 <p class="vs">- VS -</p>
-                <img class="${result}-player1" id="player2Icon"src="img/${movements[p2Move]}.svg" alt="right player movement election">
+                <img class="${result}-player1" src="img/${movements[p2Move]}.svg" alt="right player movement election">
             </section>
             <section class="result-msg flex-item">
                 <p>${resultStrings[resultCode]}</p>
             </section>
             <section class="scoreboard flex-item">
-                <div class="score-label" id="player1Label"><span>${players[gameMode]}</span></div>
+                <div class="score-label" id="player1Label"><p>${players[gameMode]}</p></div>
                 <div class="score"><span id="player1Score">${p1Score}</span><span> - </span><span id="player2Score">${p2Score}</span></div>
-                <div class="score-label" id="player2Label"><span>${players[gameMode+1]}</span></div>
+                <div class="score-label" id="player2Label"><p>${players[gameMode+1]}</p></div>
             </section>
             <div class="main-menu flex-item">
                 <button class="btn" data-gt="next">Next round!</button>
-                <button class="btn btn-dark" data-gt="home">End game</button>
+                <button class="btn btn-trans" data-gt="home">End game</button>
             </div>
         </div>
         `
     }
+}
+
+let animations = {
+    home: function(){
+        var logoTitle = document.getElementById('logoTitle');
+        var logos = document.getElementsByClassName('logo')
+        logos[0].classList.add('active')
+        var count = 0
+        let logoInterval = self.setInterval(function () {
+            if(document.body.contains(logoTitle)){
+                if(count == (logos.length - 1)){
+                    logos[logos.length - 1].classList.remove('active')
+                    count = 0
+                    logos[count].classList.add('active')
+                    logoTitle.innerHTML = movements[count]
+                }else {
+                    logos[count].classList.remove('active')
+                    logos[count+1].classList.add('active')
+                    logoTitle.innerHTML = movements[count+1]
+                    count++;
+                }
+            }else{
+                window.clearInterval(logoInterval);
+            }
+            
+        }, 800);
+    },
+
 }
 
 function botMove(){
@@ -199,5 +225,26 @@ function resolve(move1,move2) {
         return 'lose';
     }
 }
+
+function render(view, animations){
+    let wrapper = document.getElementById('wrapper');
+    wrapper.innerHTML = view
+    if(animations){
+        animations();
+    }
+}
+
+function restartGame(){
+    gameMode = 0
+    round = 1
+    p1Move = 0
+    p2Move = 0
+    result = ''
+    resultCode = ''
+    p1Score = 0
+    p2Score = 0
+    return true;
+}
+
 
 // automatization process

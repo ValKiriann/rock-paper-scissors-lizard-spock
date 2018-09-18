@@ -1,29 +1,35 @@
 // Made everything anonymous for safety reasons 
 (function() {
 
-    // function to render the views of the game
-    function render(view){
-        let wrapper = document.getElementById('wrapper');
-        wrapper.innerHTML = view
-    }
-
-    let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    
 
     // Fix to properly set the full height on mobile devices
-    function getRealVH(height) {
+    function getRealVH() {
+        let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         var wrapper = document.getElementById('wrapper');
-        wrapper.style.height = viewportHeight + 'px';
+        if(viewportWidth < 992 ){
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0
+            wrapper.style.height = viewportHeight + 'px';
+        }else if(viewportWidth >= 992 && viewportWidth < 1200){
+            wrapper.style.height='600px';
+        }else if(viewportWidth >= 1200){
+            wrapper.style.height='700px';
+        }
     }
 
     // --- Start the app --- //
-
-    if(viewportWidth < 1000 ){
-        getRealVH(viewportHeight)
-    }
+    
+    getRealVH()
 
     // render the homepage
-    render(views.home());
+    render(views.home(),animations.home);
+
+
+
+    
+    
 
     let wrapper = document.getElementById('wrapper')
 
@@ -32,15 +38,9 @@
             var view = event.target.dataset.gt
             switch(view){
                 case 'home':
-                    gameMode = 0
-                    round = 1
-                    p1Move = 0
-                    p2Move = 0
-                    result = ''
-                    resultCode = ''
-                    p1Score = 0
-                    p2Score = 0
-                    render(views.home())
+                    restartGame();
+                    getRealVH()
+                    render(views.home(),animations.home)
                     break;
                 case 'botFight':
                     gameMode = 2
@@ -65,4 +65,8 @@
 
         }
     })
+    window.addEventListener("resize", function() {
+        getRealVH()
+        console.log('im moving')
+    });
 })();

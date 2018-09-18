@@ -1,10 +1,31 @@
 /* -- General styles --- */
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'montserratmedium';
+    src: url('../fonts/montserrat-medium-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 300;
+    
+}
+
+body {
+    font-size: 1em;
+    font-family: 'montserratlight', sans-serif;
 }
 
 .wrapper {
@@ -17,7 +38,7 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100%;
     
 }
@@ -40,19 +61,33 @@
 
 /* Logo */
 
-.logo {
+#logo-container {
     padding-top: 15vh;
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+.logo {
+    position: absolute;
+    top: 15vh;
+    display: none;
+}
+.active {
+    display: block;
 }
 
 /* Title */
 
 h1 {
     color: #6F88BE;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'montserratmedium', sans-serif;
     font-size: 36px;
     text-align: center;
     font-weight: 500;
-    letter-spacing: 1px
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-top: 10px;
 }
 
 /* Buttons menu */
@@ -64,12 +99,10 @@ h1 {
     text-align: center;
 }
 
-.main-menu > h3 {
+.main-menu h3 {
     color: #607A8F;
-    font-size:18px;
-    letter-spacing: 1px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 300;
+    font-size:1em;
+    font-family: 'montserratlight', sans-serif;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -78,13 +111,13 @@ h1 {
     display: block;
     background: #8DB5EC;
     border-radius: 31px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 24px;
+    font-family: 'montserratmedium', sans-serif;
+    font-size: 1.3em;
     color: #FDFEFF;
     text-align: center;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 15px 0;
     margin-top: 10px;
     cursor: pointer;
     border: none;
@@ -105,7 +138,6 @@ h1 {
 }
 
 .text-box{
-    font-family: 'Open Sans Condensed', sans-serif;
     color: #607A8F;
     margin-bottom: 15px;
 }
@@ -113,9 +145,14 @@ h1 {
 .text-box h3 {
     font-size: 20px;
     font-weight: 800;
+    font-family: 'montserratmedium', sans-serif;
+    margin-bottom: 5px;
 }
 .text-box p {
-    font-size:18px;
+    font-size: 1.125em;
+    font-family: 'montserratlight', sans-serif;
+    letter-spacing: 0;
+    line-height: 1.2em;
 }
 .title-icon img, .title-icon h3{
     display: inline-block;
@@ -142,17 +179,16 @@ h1 {
 
 /* --- Choose move --- */
 
-.title-round {
+.title-round { 
     text-align: center;
 }
 
-.flex-col > .title-round {
+.title-round {
     padding-top: 10vh;
 }
 
-.title-round h3, .title-round span {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 700;
+.title-round h3 {
+    font-family: 'montserratmedium', sans-serif;
     font-size: 24px;
     color: #8DB5EC;
 }
@@ -160,7 +196,7 @@ h1 {
 .title-round h4 {
     color: #607A8F;
     font-size: 18px;
-}
+} 
 
 .hand {
     align-self: flex-start;
@@ -188,6 +224,7 @@ h1 {
     font-size: 36px;
     font-weight: 700;
     padding-top: 5vh;
+    font-family: 'montserratmedium', sans-serif;
 }
 .win-title {
     color: #99D2DA;
@@ -205,8 +242,12 @@ h1 {
     padding-top: 2vh;
 }
 
+.results-icons img {
+    width: 100px;
+}
+
 #player1Icon {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scaleX(-1);
 }
 
 #player2Icon {
@@ -217,6 +258,7 @@ h1 {
     font-weight: 700;
     font-size: 24px;
     color: #597B91;
+    font-family: 'montserratmedium', sans-serif;
 }
 
 .result-msg {
@@ -227,6 +269,7 @@ h1 {
 
 .scoreboard {
     padding-top: 3vh;
+    margin-top: auto;
 }
 
 .scoreboard div{
@@ -236,10 +279,17 @@ h1 {
 
 .score-label {
     background-color: #6F88BE;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     padding: 5px 20px;
+    width: 55px;
+    text-align: center;
 }
+
+.score-label p {
+    font-family: 'montserratlight', sans-serif;
+}
+
 .score {
     border: solid 3px #6F88BE;
     font-size: 48px;
@@ -247,19 +297,204 @@ h1 {
     padding: 5px 20px;
 }
 
-.btn-dark {
-    background-color: #6F88BE;
+.btn-trans {
+    background-color: transparent;
+    border: 1px solid #6F88BE;
+    color: #6F88BE;
 }
 
-/* --- Desktop HD --- */
-
-@media screen and (min-width: 1201px) {
+/* --- Desktop --- */
+@media (min-width: 992px) {
     .wrapper {
-        width: 1200px;
+        width: 700px;
         border: 1px solid #979797;
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
         margin: 0 auto;
-        height: 700px;
+        height: 600px;
         margin-top: 50px;
+    }
+    #logo-container {
+        height: 120px;
+        width: 120px;
+        padding-top: 7vh;
+    }
+    
+    .logo {
+        position: absolute;
+        width: 120px;
+        top: 7vh;        
+    }
+    h1 {
+        margin-top: 0;
+    }
+    .btn {
+        font-size: 20px;
+        width: 45%;
+        margin-top: 15px;
+        padding: 15px 0;
+        font-weight: initial;
+    }
+    .main-menu {
+        margin-top: auto;
+    }
+    .main-menu > h3 {
+        font-size:18px;
+    }
+    
+    .title-round h3 {
+        font-size: 36px;
+    }
+    
+    .title-round h4 {
+        color: #607A8F;
+        font-size: 24px;
+    } 
+    
+    .hand {
+        width: 100%
+    }
+    
+    .hand img  {
+        width: 45%;
+    }
+
+    .hand {
+        padding-top: 0;
+    }
+
+    .move-menu {
+        margin-top: 0;
+    }
+
+    .rulesView {
+        height: 100%;
+        overflow: scroll;
+        position: relative;
+        box-sizing: border-box;
+        padding: 7% 10%;
+    }
+
+    .close {
+        position: absolute;
+        top: 7%;
+    }
+
+    .results-icons {
+        width: 50%;
+    }
+
+    .results-icons img {
+        width: 110px;
+    }
+
+    .vs {
+        font-size:30px;
+    }
+
+    .title-result h2 {
+        font-size: 42px;
+    }
+
+    .result-msg  p{
+        font-family: 'montserratlight', sans-serif;
+        font-size:24px;
+    }
+    .scoreboard {
+        margin-top: 0;
+    }
+}
+
+/* --- Desktop HD ---*/
+@media screen and (min-width: 1200px) {
+    .wrapper {
+        width: 1000px;
+        border: 1px solid #979797;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    #logo-container {
+        height: 150px;
+        width: 150px;
+    }
+    
+    .logo {
+        position: absolute;
+        width: 150px;
+        top: 15vh;        
+    }
+    h1 {
+        margin-top: 20px;
+    }
+    .btn {
+        font-size: 24px;
+        margin-top: 25px;
+        padding: 20px 0;
+    }
+    .main-menu {
+        padding-bottom: 6vh;
+        margin-top:0;
+    }
+    .main-menu > h3 {
+        font-size:18px;
+    }
+    
+    .title-round h3 {
+        font-size: 36px;
+    }
+    
+    .title-round h4 {
+        color: #607A8F;
+        font-size: 24px;
+    } 
+    
+    .hand {
+        width: 100%
+    }
+    
+    .hand img  {
+        width: 45%;
+    }
+
+    .hand {
+        padding-top: 0;
+    }
+
+    .move-menu {
+        margin-top: 0;
+    }
+
+    .rulesView {
+        height: 100%;
+        overflow: scroll;
+        position: relative;
+        box-sizing: border-box;
+        padding: 7% 10%;
+    }
+
+    .close {
+        position: absolute;
+        top: 7%;
+    }
+
+    .results-icons {
+        width: 50%;
+    }
+
+    .results-icons img {
+        width: 125px;
+    }
+
+    .vs {
+        font-size:30px;
+    }
+
+    .title-result h2 {
+        font-size: 48px;
+    }
+
+    .result-msg  p{
+        font-family: 'montserratlight', sans-serif;
+        font-size:24px;
     }
 }
