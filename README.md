@@ -22,7 +22,7 @@ This project was a challenge with special rules to complete it:
 
 The project was made in HTML, CSS and JS. You can see a live previeww [here](https://valkiriann.github.io/rock-paper-scissors-lizard-spock/)
 <p align="center">
-    <img src="presentation/gameplay.gif" alt="Gameplay mobile" title="Rock paper scissors lizard spock" align="center" height="400" />
+    <img src="presentation/gameplay.gif" alt="Gameplay mobile" title="gameplay" align="center" height="400" />
 </p>
 
 
@@ -32,15 +32,22 @@ This game was made for Chrome 68, but It was tested also in Safari 11.1.2 and in
 
 ## Design
 <p align="center">
-    <img src="presentation/mockupDesktop.jpg" alt="showcase of web design" title="Rock paper scissors lizard spock" align="center"/>
+    <img src="presentation/mockupDesktop.jpg" alt="showcase of web design" title="web design" align="center"/>
 </p>
 
 When I was thinking about my target, I imagined a range of 18 - 45 for the age. A casual gamer that likes to play on the phone when he/she has some spare time. I choose flat design for the main rule of the style.
 
+<p align="center">
+    <img src="presentation/colorPalette.png" alt="showcase of the color palette" title="Color palette" align="center"/>
+</p>
+
 I used a chromatic range of blues to inspire calm and relax. The object of the game is to just enjoy a simple mechanic when you want to disconnect a little from your daily rutine.
 
+I downloaded the icons from [kisspng](https://es.kisspng.com/kisspng-xg77bn/) and converted them to svg. Then I select my color paletter and prepare the design in Sketch.
+
+
 <p align="center">
-    <img src="presentation/mockupMobile.jpg" alt="showcase of mobile design" title="Rock paper scissors lizard spock" align="center"/>
+    <img src="presentation/mockupMobile.jpg" alt="showcase of mobile design" title="mobile design" align="center"/>
 </p>
 
 ## Running the tests
@@ -307,5 +314,8 @@ function resolve(move1,move2) {
     }
 }
 ```
+<p align="center">
+    <img src="presentation/mockupDesktop2.jpg" alt="showcase of web design" title="Winning!" align="center"/>
+</p>
 
-
+Thanks a lot for reading and have fun!
