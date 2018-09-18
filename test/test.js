@@ -1,14 +1,21 @@
 var assert = chai.assert;
 describe('botMove', function() {
-  it('should return a number greater or equal to 0', function() {
-    assert.isAtLeast(botMove(), 0);
-  });
-  it('should return a number at most the length of the movements -1 to respect the zero index', function() {
-    assert.isAtMost(botMove(), movements.length -1 );
-  });
-  it('should return a number that is an index in the movements array', function() {
-    assert.containsAllKeys(movements, botMove(), 'This number is not an index of the array')
-  });
+    describe('We test each condition 4 times the number of movements to test the randomness condition', function() {
+        for(let i=0;i< movements.length * 4;i++){
+            var result = botMove();
+            describe('The result is ' + result, function() {
+                it('should return a number greater or equal to 0.', function() {
+                    assert.isAtLeast(result, 0);
+                });
+                it('should return a number at most the length of the movements -1 to respect the zero index', function() {
+                    assert.isAtMost(result, movements.length -1 );
+                });
+                it('should return a number that is an index in the movements array', function() {
+                    assert.containsAllKeys(movements, result, 'This number is not an index of the array')
+                });
+            });
+        }
+    });
 });
 
 describe('resolve', function() {
