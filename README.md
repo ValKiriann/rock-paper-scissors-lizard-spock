@@ -20,7 +20,7 @@ This project was a challenge with special rules to complete it:
 
 ## Getting Started
 
-The project was made in HTML, CSS and JS. You can see a live previeww [here](https://valkiriann.github.io/rock-paper-scissors-lizard-spock/)
+The project was made in HTML, CSS and JS. You can see a live preview [here](https://valkiriann.github.io/rock-paper-scissors-lizard-spock/)
 <p align="center">
     <img src="presentation/gameplay.gif" alt="Gameplay mobile" title="gameplay" align="center" height="400" />
 </p>
@@ -41,9 +41,9 @@ When I was thinking about my target, I imagined a range of 18 - 45 for the age. 
     <img src="presentation/colorPalette.png" alt="showcase of the color palette" title="Color palette" align="center"/>
 </p>
 
-I used a chromatic range of blues to inspire calm and relax. The object of the game is to just enjoy a simple mechanic when you want to disconnect a little from your daily rutine.
+I used a chromatic range of blues to inspire calm and relax. The object of the game is to just enjoy a simple mechanic when you want to disconnect a little from your daily routine.
 
-I downloaded the icons from [kisspng](https://es.kisspng.com/kisspng-xg77bn/) and converted them to svg. Then I select my color paletter and prepare the design in Sketch.
+I downloaded the icons from [kisspng](https://es.kisspng.com/kisspng-xg77bn/) and converted them to svg. Then I select my color palette and prepare the design in Sketch.
 
 
 <p align="center">
@@ -70,7 +70,7 @@ let p2Score = 0
 ```
 Because I could not use any external libs, I created my own special render for the views, that basically takes the wrapper and changes the innerHTML with the template of the view that the user needs to see. I pass the template as a template string with ES6.
 
-I also have introduced a view_helper object that contains functions to dynamically create the parts that repeat with a pattern to avoid repeting code and to be more efficient. I use this when I have to display the rules for ever move or when I have to display the icons of every move to show the user the posibilities of the round.
+I also have introduced a view_helper object that contains functions to dynamically create the parts that repeat with a pattern to avoid repeating code and to be more efficient. I use this when I have to display the rules for ever move or when I have to display the icons of every move to show the user the possibilities of the round.
 
 ```
 let view_helpers = {
