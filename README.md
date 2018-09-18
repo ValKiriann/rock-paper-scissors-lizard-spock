@@ -1,5 +1,5 @@
 <a href="https://valkiriann.github.io/rock-paper-scissors-lizard-spock/">
-    <img src="presentation/logo.gif" alt="Game logo" title="Rock paper scissors lizard spock" align="left" height="200" />
+    <img src="presentation/logo.gif" alt="Game logo" title="Rock paper scissors lizard spock" align="left" height="150" />
 </a>
 
 # Rock, paper, scissors, lizard, spock
